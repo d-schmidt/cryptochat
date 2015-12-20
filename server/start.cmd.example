@@ -1,0 +1,1 @@
+"c:\Program Files\Java\jre7\bin\java.exe" -cp .;mvntestarea-1.0-SNAPSHOT-server.jar mvntestarea.EventServer

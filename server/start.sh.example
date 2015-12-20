@@ -1,0 +1,1 @@
+nohup "java -cp .;mvntestarea-1.0-SNAPSHOT-server.jar mvntestarea.EventServer" > chat.log 2>&1 &

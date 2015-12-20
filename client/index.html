@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="chatApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>Chat UI</title>
+<link rel="stylesheet" type="text/css" href="chatapp.css">
+</head>
+<body ng-controller="ChatCtrl" bgcolor="#1A222F">
+<div id="loginform">
+    <form ng-submit="register()">
+        <input ng-model="username" type="text" id="name" placeholder="enter your name" ng-disabled="registered"/>
+        <input type="submit" value="Register" id="button" ng-disabled="registered">
+    </form>
+</div>
+<div id="wrapper">
+    <div id="menu">
+        <p class="welcome">Welcome, <b>{{username}}</b></p>
+        <div style="clear:both"></div>
+    </div>
+
+    <div scroll-glue><p ng-repeat="message in messages"><b>{{message.name}}: </b>{{message.text}}</p></div>
+
+    <form ng-submit="requestKey()">
+        <input ng-model="targetuser" type="text" id="target" ng-disabled="! registered || connected" placeholder="chat partner name" />
+        <input type="submit" id="button" value="Connect" ng-disabled="! registered || connected"/>
+    </form>
+    <form ng-submit="sendmessage()">
+        <input ng-model="usermsg" type="text" id="usermsg" ng-disabled="! registered || ! connected" placeholder="chat message" />
+        <input type="submit" id="button" value="Send" ng-disabled="! registered || ! connected"/>
+    </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular.min.js"></script>
+<script src="scrollglue.js"></script>
+<script src="chatapp.js"></script>
+
+</script>
+</body>
+</html>
